@@ -49,7 +49,7 @@ const HeroBanner = () => {
           <img 
             src={banner.img} 
             alt={banner.title} 
-            className="object-cover object-center w-full h-full" 
+            className="object-cover object-[center_20%] w-full h-full" 
           />
           <div className="gradient-overlay" />
           <div className="absolute inset-0 flex flex-col items-center justify-end pb-24 px-6 text-center">
