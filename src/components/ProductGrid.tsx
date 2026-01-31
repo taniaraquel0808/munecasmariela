@@ -8,12 +8,20 @@ import zero from '@/assets/zero.png';
 import coraline from '@/assets/coraline.png';
 import mafalda from '@/assets/mafalda.png';
 import jackCojin from '@/assets/jack-cojin.png';
+import emilyNoviaCadaver from '@/assets/emily-novia-cadaver.png';
+import victorNoviaCadaver from '@/assets/victor-novia-cadaver.png';
+import emilyVictorPair from '@/assets/emily-victor-pair.png';
+import rick from '@/assets/rick.png';
+import snoopyAstronauta from '@/assets/snoopy-astronauta.png';
+import snoopyAviador from '@/assets/snoopy-aviador.png';
+import snoopyPiloto from '@/assets/snoopy-piloto.png';
 
 interface ProductGridProps {
   onAddToCart: () => void;
 }
 
 const products = [
+  // El Extraño Mundo de Jack
   { 
     id: 101, 
     name: "Jack Skellington", 
@@ -54,6 +62,60 @@ const products = [
     img: jackCojin, 
     desc: "Cojín decorativo con la icónica sonrisa de Jack Skellington." 
   },
+
+  // Novia Cadáver
+  { 
+    id: 201, 
+    name: "Emily (Novia Cadáver)", 
+    price: "110.000", 
+    cat: "Corpse Bride", 
+    img: emilyNoviaCadaver, 
+    desc: "La novia que cautivó a todos. Detalles en encaje y materiales hipoalergénicos premium." 
+  },
+  { 
+    id: 202, 
+    name: "Victor Van Dort", 
+    price: "110.000", 
+    cat: "Corpse Bride", 
+    img: victorNoviaCadaver, 
+    desc: "El caballero de corazón noble, recreado con la fidelidad del taller de Mariela." 
+  },
+  { 
+    id: 203, 
+    name: "Emily & Victor", 
+    price: "220.000", 
+    cat: "Parejas", 
+    img: emilyVictorPair, 
+    desc: "Colección premium de la pareja gótica más amada. Arte textil de lujo." 
+  },
+
+  // Snoopy Variaciones
+  { 
+    id: 301, 
+    name: "Snoopy Aviador", 
+    price: "55.000", 
+    cat: "Snoopy", 
+    img: snoopyAviador, 
+    desc: "Snoopy listo para enfrentar al Barón Rojo. Casco y bufanda en materiales suaves." 
+  },
+  { 
+    id: 302, 
+    name: "Snoopy Astronauta", 
+    price: "55.000", 
+    cat: "Snoopy", 
+    img: snoopyAstronauta, 
+    desc: "Explorando la luna con la calidad de Muñecas Mariela. Hipoalergénico y duradero." 
+  },
+  { 
+    id: 303, 
+    name: "Snoopy Piloto de Carreras", 
+    price: "55.000", 
+    cat: "Snoopy", 
+    img: snoopyPiloto, 
+    desc: "Velocidad y ternura en una sola pieza. Ideal para coleccionistas de Peanuts." 
+  },
+
+  // Otros
   { 
     id: 401, 
     name: "Coraline Jones", 
@@ -69,6 +131,14 @@ const products = [
     cat: "Clásicos", 
     img: mafalda, 
     desc: "La niña que quiere cambiar el mundo, ahora en un suave formato artesanal." 
+  },
+  { 
+    id: 501, 
+    name: "Rick Sánchez", 
+    price: "75.000", 
+    cat: "Adult Swim", 
+    img: rick, 
+    desc: "El científico más loco del multiverso. Peluche artesanal para fans de la serie." 
   },
 ];
 
