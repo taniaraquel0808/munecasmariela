@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import ProductCard from './ProductCard';
+import ProductDetailModal from './ProductDetailModal';
 
 // Import product images
 import jackSkellington from '@/assets/jack-skellington.png';
@@ -16,11 +18,20 @@ import snoopyAstronauta from '@/assets/snoopy-astronauta.png';
 import snoopyAviador from '@/assets/snoopy-aviador.png';
 import snoopyPiloto from '@/assets/snoopy-piloto.png';
 
+interface Product {
+  id: number;
+  name: string;
+  price: string;
+  cat: string;
+  img: string;
+  desc: string;
+}
+
 interface ProductGridProps {
   onAddToCart: () => void;
 }
 
-const products = [
+const products: Product[] = [
   // El Extraño Mundo de Jack
   { 
     id: 101, 
@@ -143,6 +154,19 @@ const products = [
 ];
 
 const ProductGrid = ({ onAddToCart }: ProductGridProps) => {
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleProductClick = (product: Product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+  };
+
   return (
     <section id="colecciones" className="py-24 md:py-32 bg-secondary/30">
       <div className="container">
@@ -161,10 +185,18 @@ const ProductGrid = ({ onAddToCart }: ProductGridProps) => {
               key={product.id} 
               product={product} 
               onAddToCart={onAddToCart}
+              onProductClick={() => handleProductClick(product)}
             />
           ))}
         </div>
       </div>
+
+      <ProductDetailModal 
+        product={selectedProduct}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onAddToCart={onAddToCart}
+      />
     </section>
   );
 };

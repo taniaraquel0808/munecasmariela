@@ -10,11 +10,20 @@ interface Product {
 interface ProductCardProps {
   product: Product;
   onAddToCart: () => void;
+  onProductClick: () => void;
 }
 
-const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
+const ProductCard = ({ product, onAddToCart, onProductClick }: ProductCardProps) => {
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onAddToCart();
+  };
+
   return (
-    <div className="card-product group">
+    <div 
+      className="card-product group cursor-pointer"
+      onClick={onProductClick}
+    >
       <div className="aspect-[4/5] relative overflow-hidden">
         <img 
           src={product.img} 
@@ -26,13 +35,17 @@ const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
             {product.cat}
           </span>
         </div>
+        {/* Quick view overlay */}
+        <div className="absolute inset-0 bg-background/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <span className="label-caps text-primary">Ver Detalles</span>
+        </div>
       </div>
       
       <div className="p-7">
         <h3 className="text-xl md:text-2xl font-display uppercase italic group-hover:text-primary transition-colors tracking-tight">
           {product.name}
         </h3>
-        <p className="mt-3 text-[11px] text-muted-foreground leading-relaxed font-medium min-h-[48px]">
+        <p className="mt-3 text-[11px] text-muted-foreground leading-relaxed font-medium min-h-[48px] line-clamp-2">
           {product.desc}
         </p>
         
@@ -46,7 +59,7 @@ const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
             </span>
           </div>
           <button 
-            onClick={onAddToCart}
+            onClick={handleAddToCart}
             className="btn-primary whitespace-nowrap"
           >
             Adoptar
