@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import jackSallyBanner from '@/assets/jack-sally-banner.png';
-import coraline from '@/assets/coraline.png';
+import coralineBanner from '@/assets/coraline-banner.png';
 import jackSallyPair from '@/assets/jack-sally-pair.png';
 
 interface Banner {
@@ -16,7 +16,7 @@ const banners: Banner[] = [
     subtitle: "Colección Especial Burton" 
   },
   { 
-    img: coraline, 
+    img: coralineBanner, 
     title: "Coraline Jones", 
     subtitle: "Mundos Mágicos de Selick" 
   },
@@ -38,7 +38,7 @@ const HeroBanner = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[70vh] md:h-screen pt-20 overflow-hidden">
+    <div className="relative w-full h-[60vh] md:h-[90vh] pt-20 overflow-hidden">
       {banners.map((banner, index) => (
         <div 
           key={index}
@@ -49,14 +49,14 @@ const HeroBanner = () => {
           <img 
             src={banner.img} 
             alt={banner.title} 
-            className="object-cover w-full h-full" 
+            className="object-cover object-center w-full h-full" 
           />
           <div className="gradient-overlay" />
           <div className="absolute inset-0 flex flex-col items-center justify-end pb-24 px-6 text-center">
-            <span className="text-primary label-caps mb-4">
+            <span className="banner-subtitle mb-4">
               {banner.subtitle}
             </span>
-            <h2 className="headline-display text-4xl md:text-7xl lg:text-8xl text-foreground mb-8">
+            <h2 className="banner-title text-4xl md:text-7xl lg:text-8xl text-foreground mb-8">
               {banner.title}
             </h2>
           </div>

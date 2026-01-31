@@ -1,4 +1,4 @@
-import { X, ShieldCheck, Heart, Truck, Award } from 'lucide-react';
+import { X, ShieldCheck, Heart, Truck, Sparkles } from 'lucide-react';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 
 interface Product {
@@ -7,7 +7,9 @@ interface Product {
   price: string;
   cat: string;
   img: string;
+  images?: string[];
   desc: string;
+  longDesc?: string;
 }
 
 interface ProductDetailModalProps {
@@ -65,19 +67,14 @@ const ProductDetailModal = ({ product, isOpen, onClose, onAddToCart }: ProductDe
                 <span className="text-3xl md:text-4xl font-display text-foreground">
                   ${product.price}
                 </span>
-                <span className="text-muted-foreground text-sm">COP</span>
+                <span className="text-foreground/60 text-sm">COP</span>
               </div>
             </div>
 
             {/* Description */}
             <div className="mb-6">
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                {product.desc}
-              </p>
-              <p className="text-muted-foreground/80 leading-relaxed text-sm italic">
-                Cada pieza es elaborada completamente a mano por artesanas colombianas expertas, 
-                utilizando materiales premium hipoalergénicos certificados. No encontrarás dos 
-                piezas idénticas — cada muñeco tiene su propia personalidad única.
+              <p className="text-foreground/90 leading-relaxed text-sm">
+                {product.longDesc || product.desc}
               </p>
             </div>
 
@@ -85,19 +82,19 @@ const ProductDetailModal = ({ product, isOpen, onClose, onAddToCart }: ProductDe
             <div className="grid grid-cols-2 gap-4 mb-6">
               <div className="flex items-center gap-3 p-3 rounded-xl bg-secondary/50">
                 <ShieldCheck className="text-primary shrink-0" size={20} />
-                <span className="text-[11px] font-bold uppercase tracking-wide">100% Hipoalergénico</span>
+                <span className="text-xs font-bold uppercase tracking-wide">100% Hipoalergénico</span>
               </div>
               <div className="flex items-center gap-3 p-3 rounded-xl bg-secondary/50">
-                <Award className="text-primary shrink-0" size={20} />
-                <span className="text-[11px] font-bold uppercase tracking-wide">Pieza Numerada</span>
+                <Sparkles className="text-primary shrink-0" size={20} />
+                <span className="text-xs font-bold uppercase tracking-wide">Diseño Exclusivo</span>
               </div>
               <div className="flex items-center gap-3 p-3 rounded-xl bg-secondary/50">
                 <Heart className="text-primary shrink-0" size={20} />
-                <span className="text-[11px] font-bold uppercase tracking-wide">Hecho con Amor</span>
+                <span className="text-xs font-bold uppercase tracking-wide">Hecho con Amor</span>
               </div>
               <div className="flex items-center gap-3 p-3 rounded-xl bg-secondary/50">
                 <Truck className="text-primary shrink-0" size={20} />
-                <span className="text-[11px] font-bold uppercase tracking-wide">Envío Mundial</span>
+                <span className="text-xs font-bold uppercase tracking-wide">Envío Nacional Gratis</span>
               </div>
             </div>
 
@@ -105,7 +102,7 @@ const ProductDetailModal = ({ product, isOpen, onClose, onAddToCart }: ProductDe
             <div className="mb-6 p-4 rounded-xl border border-primary/30 bg-primary/5">
               <p className="text-sm text-center">
                 <span className="text-primary font-bold">⚡ Edición Limitada</span>
-                <span className="text-muted-foreground"> — Solo quedan pocas unidades de esta pieza artesanal.</span>
+                <span className="text-foreground/80"> — Solo quedan pocas unidades de esta pieza artesanal.</span>
               </p>
             </div>
 
@@ -117,8 +114,8 @@ const ProductDetailModal = ({ product, isOpen, onClose, onAddToCart }: ProductDe
               >
                 🛒 Adoptar este Personaje Ahora
               </button>
-              <p className="text-center text-[10px] text-muted-foreground uppercase tracking-wider">
-                Pago seguro • Garantía de satisfacción • Envío asegurado
+              <p className="text-center text-xs text-foreground/60 uppercase tracking-wider">
+                Pago seguro • Garantía de satisfacción • Envío gratis
               </p>
             </div>
           </div>
