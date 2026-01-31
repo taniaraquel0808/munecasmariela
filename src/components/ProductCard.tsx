@@ -1,9 +1,12 @@
+import { Truck } from 'lucide-react';
+
 interface Product {
   id: number;
   name: string;
   price: string;
   cat: string;
   img: string;
+  images?: string[];
   desc: string;
 }
 
@@ -45,13 +48,19 @@ const ProductCard = ({ product, onAddToCart, onProductClick }: ProductCardProps)
         <h3 className="text-xl md:text-2xl font-display uppercase italic group-hover:text-primary transition-colors tracking-tight">
           {product.name}
         </h3>
-        <p className="mt-3 text-[11px] text-muted-foreground leading-relaxed font-medium min-h-[48px] line-clamp-2">
+        <p className="mt-3 product-description min-h-[48px] line-clamp-2">
           {product.desc}
         </p>
         
-        <div className="flex items-center justify-between mt-6 gap-4">
+        {/* Free shipping badge */}
+        <div className="flex items-center gap-2 mt-3 text-primary">
+          <Truck size={16} />
+          <span className="text-xs font-bold uppercase tracking-wide">Envío Gratis</span>
+        </div>
+        
+        <div className="flex items-center justify-between mt-5 gap-4">
           <div className="flex flex-col">
-            <span className="text-[9px] text-muted-foreground font-bold uppercase tracking-widest">
+            <span className="text-[9px] text-foreground/60 font-bold uppercase tracking-widest">
               Inversión COP
             </span>
             <span className="text-2xl md:text-3xl font-display text-foreground">
