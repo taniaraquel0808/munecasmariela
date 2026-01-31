@@ -7,23 +7,27 @@ interface Banner {
   img: string;
   title: string;
   subtitle: string;
+  position: string;
 }
 
 const banners: Banner[] = [
   { 
     img: jackSallyBanner, 
     title: "El Extraño Mundo de Jack", 
-    subtitle: "Colección Especial Burton" 
+    subtitle: "Colección Especial Burton",
+    position: "object-[center_35%]"
   },
   { 
     img: coralineBanner, 
     title: "Coraline Jones", 
-    subtitle: "Mundos Mágicos de Selick" 
+    subtitle: "Mundos Mágicos de Selick",
+    position: "object-[center_20%]"
   },
   { 
     img: jackSallyPair, 
     title: "Jack & Sally", 
-    subtitle: "Amor Eterno Artesanal" 
+    subtitle: "Amor Eterno Artesanal",
+    position: "object-[center_20%]"
   }
 ];
 
@@ -49,7 +53,7 @@ const HeroBanner = () => {
           <img 
             src={banner.img} 
             alt={banner.title} 
-            className="object-cover object-[center_20%] w-full h-full" 
+            className={`object-cover ${banner.position} w-full h-full`} 
           />
           <div className="gradient-overlay" />
           <div className="absolute inset-0 flex flex-col items-center justify-end pb-24 px-6 text-center">
