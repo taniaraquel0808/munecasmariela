@@ -20,15 +20,17 @@ const WorkshopSection = () => {
           </div>
           
           <div>
-            <img 
-              src={logo} 
-              alt="Logo Muñecas Mariela" 
-              className="h-20 md:h-24 mb-6" 
-            />
-            <h2 className="headline-display text-4xl md:text-6xl lg:text-7xl mb-8">
-              EL SUEÑO <br />
-              <span className="text-primary">DE MARIELA</span>
-            </h2>
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8">
+              <h2 className="headline-display text-4xl md:text-5xl lg:text-6xl">
+                EL SUEÑO <br />
+                <span className="text-primary">DE MARIELA</span>
+              </h2>
+              <img 
+                src={logo} 
+                alt="Logo Muñecas Mariela" 
+                className="h-24 md:h-32 lg:h-40" 
+              />
+            </div>
             <p className="text-lg text-foreground/80 mb-10 leading-relaxed italic">
               Lo que comenzó como un pequeño sueño artesanal ha evolucionado en un taller 
               dedicado a dar vida a personajes icónicos. Mariela diseña cada pieza buscando 
