@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => ({
         mode === 'development' &&
         componentTagger(),
     ].filter(Boolean),
-    base: "/munecasmariela/",
+    base: "/",
     build: {
         outDir: "docs",
     },
