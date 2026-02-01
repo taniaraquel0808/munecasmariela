@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import jackSallyBanner from '@/assets/jack-sally-banner.png';
 import coralineBanner from '@/assets/coraline-banner.png';
-import jackSallyPair from '@/assets/jack-sally-pair.png';
+import laNoviaBanner from '@/assets/la-novia-banner.png';
+import jackSallyBanner from '@/assets/jack-sally-banner.png';
 
 interface Banner {
   img: string;
@@ -12,22 +12,22 @@ interface Banner {
 
 const banners: Banner[] = [
   { 
-    img: jackSallyBanner, 
-    title: "El Extraño Mundo de Jack", 
-    subtitle: "Colección Especial Burton",
-    position: "object-[center_35%]"
-  },
-  { 
     img: coralineBanner, 
     title: "Coraline Jones", 
     subtitle: "Mundos Mágicos de Selick",
     position: "object-[center_20%]"
   },
   { 
-    img: jackSallyPair, 
-    title: "Jack & Sally", 
-    subtitle: "Amor Eterno Artesanal",
-    position: "object-[center_20%]"
+    img: laNoviaBanner, 
+    title: "La Novia Cadáver", 
+    subtitle: "Amor Más Allá de la Muerte",
+    position: "object-[center_30%]"
+  },
+  { 
+    img: jackSallyBanner, 
+    title: "El Extraño Mundo de Jack", 
+    subtitle: "Colección Especial Burton",
+    position: "object-[center_40%]"
   }
 ];
 
